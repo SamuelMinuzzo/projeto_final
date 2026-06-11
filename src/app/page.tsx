@@ -2,64 +2,213 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-blue-950 text-white p-6">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
+        <div className="space-y-5 bg-gray-900 rounded-lg px-6 py-4">
+          <h1 className="text-3xl font-bold text-blue-200">
+            Sistema de Separação
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-blue-400">
+            Monitoramento em Tempo Real
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="flex items-center gap-2 bg-green-500/20 border border-green-500 px-4 py-2 rounded-lg">
+          <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
+          <span>Operando</span>
         </div>
-      </main>
+      </div>
+
+      {/* Indicadores */}
+      <div className="grid grid-cols-4 gap-4 mb-8">
+        <div className="bg-gray-900 border border-zinc-800 rounded-xl p-4">
+          <p className="text-zinc-400 text-sm">
+            Produção Hoje
+          </p>
+          <p className="text-3xl font-bold">1248</p>
+        </div>
+
+        <div className="bg-gray-900 border border-zinc-800 rounded-xl p-4">
+          <p className="text-zinc-400 text-sm">
+            Pequenos
+          </p>
+          <p className="text-3xl font-bold text-blue-400">
+            745
+          </p>
+        </div>
+
+        <div className="bg-gray-900 border border-zinc-800 rounded-xl p-4">
+          <p className="text-zinc-400 text-sm">
+            Médios
+          </p>
+          <p className="text-3xl font-bold text-yellow-400">
+            350
+          </p>
+        </div>
+
+        <div className="bg-gray-900 border border-zinc-800 rounded-xl p-4">
+          <p className="text-zinc-400 text-sm">
+            Grandes
+          </p>
+          <p className="text-3xl font-bold text-red-400">
+            153
+          </p>
+        </div>
+      </div>
+
+      {/* Conteúdo */}
+      <div className="grid grid-cols-[1fr_320px] gap-6">
+        {/* Área principal */}
+        <div className="bg-gray-900 border border-zinc-800 rounded-2xl p-8">
+          <h2 className="text-xl font-semibold mb-10">
+            Esteira de Separação
+          </h2>
+
+          {/* Entrada */}
+          <div className="mb-12">
+            <div className="inline-flex items-center gap-3 bg-zinc-800 px-4 py-2 rounded-lg">
+              <span>📥</span>
+              <span>Entrada</span>
+            </div>
+          </div>
+
+          {/* Esteira */}
+          <div className="relative flex justify-between items-center">
+
+            {/* Linha da esteira */}
+            <div className="absolute left-0 right-0 h-2 bg-zinc-700 top-1/2 -translate-y-1/2" />
+
+            {/* P0 */}
+            <div className="relative z-10 flex flex-col items-center gap-3">
+              <div className="w-24 h-24 rounded-full bg-zinc-800 border-4 border-cyan-500 flex items-center justify-center">
+                <div className="w-12 h-12 rounded bg-blue-500 flex items-center justify-center font-bold">
+                  15
+                </div>
+              </div>
+              <span>P0</span>
+              <span className="text-xs text-zinc-400">
+                Identificação
+              </span>
+            </div>
+
+            {/* P1 */}
+            <div className="relative z-10 flex flex-col items-center gap-3">
+              <div className="w-24 h-24 rounded-full bg-zinc-800 border-4 border-blue-500 flex items-center justify-center">
+                <div className="w-12 h-12 rounded bg-yellow-500 text-black flex items-center justify-center font-bold">
+                  14
+                </div>
+              </div>
+
+              <span>P1</span>
+
+              <span className="text-xs text-zinc-400">
+                Pequenos
+              </span>
+
+              {/* Braço */}
+              <div className="absolute -top-14 flex flex-col items-center">
+                <div className="w-2 h-12 bg-blue-500" />
+                <div className="w-12 h-2 bg-blue-500" />
+              </div>
+            </div>
+
+            {/* P2 */}
+            <div className="relative z-10 flex flex-col items-center gap-3">
+              <div className="w-24 h-24 rounded-full bg-zinc-800 border-4 border-yellow-500 flex items-center justify-center">
+              </div>
+
+              <span>P2</span>
+
+              <span className="text-xs text-zinc-400">
+                Médios
+              </span>
+
+              <div className="absolute -top-14 flex flex-col items-center">
+                <div className="w-2 h-12 bg-yellow-500" />
+                <div className="w-12 h-2 bg-yellow-500" />
+              </div>
+            </div>
+
+            {/* P3 */}
+            <div className="relative z-10 flex flex-col items-center gap-3">
+              <div className="w-24 h-24 rounded-full bg-zinc-800 border-4 border-red-500 flex items-center justify-center">
+              </div>
+
+              <span>P3</span>
+
+              <span className="text-xs text-zinc-400">
+                Grandes
+              </span>
+
+              <div className="absolute -top-14 flex flex-col items-center">
+                <div className="w-2 h-12 bg-red-500" />
+                <div className="w-12 h-2 bg-red-500" />
+              </div>
+            </div>
+          </div>
+
+          {/* Rampas */}
+          <div className="flex justify-around mt-20">
+            <div className="w-32 h-20 border-2 border-blue-500 rounded-xl flex items-center justify-center text-blue-400">
+              Rampa P1
+            </div>
+
+            <div className="w-32 h-20 border-2 border-yellow-500 rounded-xl flex items-center justify-center text-yellow-400">
+              Rampa P2
+            </div>
+
+            <div className="w-32 h-20 border-2 border-red-500 rounded-xl flex items-center justify-center text-red-400">
+              Rampa P3
+            </div>
+          </div>
+        </div>
+
+        {/* Eventos */}
+        <div className="bg-gray-900 border border-zinc-800 rounded-2xl p-6">
+          <h2 className="text-xl font-semibold mb-6">
+            Eventos
+          </h2>
+
+          <div className="space-y-4">
+            <div className="border-l-2 border-blue-500 pl-4">
+              <p className="font-medium">
+                Objeto #15 identificado
+              </p>
+              <p className="text-xs text-zinc-400">
+                14:25:10
+              </p>
+            </div>
+
+            <div className="border-l-2 border-yellow-500 pl-4">
+              <p className="font-medium">
+                Objeto #14 avançou para P1
+              </p>
+              <p className="text-xs text-zinc-400">
+                14:25:08
+              </p>
+            </div>
+
+            <div className="border-l-2 border-green-500 pl-4">
+              <p className="font-medium">
+                Objeto #12 removido
+              </p>
+              <p className="text-xs text-zinc-400">
+                14:24:59
+              </p>
+            </div>
+
+            <div className="border-l-2 border-red-500 pl-4">
+              <p className="font-medium">
+                Objeto #10 enviado para rampa
+              </p>
+              <p className="text-xs text-zinc-400">
+                14:24:54
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
